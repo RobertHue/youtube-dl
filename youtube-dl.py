@@ -27,8 +27,12 @@ def main(input_file, output_folder, strategy):
         output_folder (str): Folder to save the downloaded videos or audios.
         strategy (str): The download strategy ('audio' or 'video').
     """
-    with open(input_file, "r") as file:
-        urls = file.read().splitlines()
+    try:
+        with open(input_file, "r") as file:
+            urls = file.read().splitlines()
+    except FileNotFoundError:
+        logging.error(f"Input file {input_file} not found.")
+        return
 
     # Delete the output folder if it exists
     if os.path.exists(output_folder):
