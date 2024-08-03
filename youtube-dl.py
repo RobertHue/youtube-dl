@@ -1,7 +1,8 @@
 import argparse
+import logging
 import os
 import shutil
-import logging
+
 import yt_dlp
 
 logging.basicConfig(
