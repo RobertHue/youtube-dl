@@ -10,18 +10,12 @@ logging.basicConfig(
 
 ydl_audio_m4a = {
     "format": "m4a/bestaudio/best",
-    # ℹ️ See help(yt_dlp.postprocessor) for a list of available Postprocessors and their arguments
-    "postprocessors": [
-        {  # Extract audio using ffmpeg
-            "key": "FFmpegExtractAudio",
-            "preferredcodec": "m4a",
-        }
-    ],
+    "postprocessors": [{"key": "FFmpegExtractAudio", "preferredcodec": "m4a"}],
 }
 
 ydl_video_best = {
     "format": "bestvideo+bestaudio/best",
-    "merge_output_format": "mp4",  # Ensure the output is in MP4 format
+    "merge_output_format": "mp4",
 }
 
 
