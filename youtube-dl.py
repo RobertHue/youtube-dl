@@ -7,8 +7,13 @@ import yt_dlp
 
 def format_video(ctx):
     """Select the best video and the best audio that won't result in an mkv.
-    NOTE: This is just an example and does not handle all cases"""
 
+    Args:
+        ctx (dict): The context dictionary containing format information.
+
+    Yields:
+        dict: A dictionary containing the merged format details.
+    """
     # formats are already sorted worst to best
     formats = ctx.get("formats")[::-1]
 
@@ -49,6 +54,12 @@ ydl_audio_m4a = {
 
 
 def main(input_file, output_folder):
+    """Download videos from a list of URLs.
+
+    Args:
+        input_file (str): Path to the text file containing the URLs.
+        output_folder (str): Folder to save the downloaded videos.
+    """
     with open(input_file, "r") as file:
         urls = file.read().splitlines()
 
