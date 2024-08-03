@@ -2,6 +2,7 @@ import argparse
 import logging
 import os
 import shutil
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import yt_dlp
 
@@ -20,14 +21,14 @@ ydl_video_best = {
 }
 
 
-def download_urls(urls, ydl_opts):
-    """Download multiple URLs using the specified yt_dlp options."""
+def download_url(url, ydl_opts):
+    """Download a single URL using the specified yt_dlp options."""
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download(urls)
-        logging.info("Successfully downloaded URLs")
+            ydl.download([url])
+        logging.info(f"Successfully downloaded: {url}")
     except Exception as e:
-        logging.error(f"Error downloading URLs: {e}")
+        logging.error(f"Error downloading {url}: {e}")
 
 
 def main(input_file, output_folder, strategy, concurrent_fragments):
@@ -60,7 +61,14 @@ def main(input_file, output_folder, strategy, concurrent_fragments):
     ydl_opts["outtmpl"] = os.path.join(output_folder, "%(title)s.%(ext)s")
     ydl_opts["concurrent_fragment_downloads"] = concurrent_fragments
 
-    download_urls(urls, ydl_opts)
+    # Use ThreadPoolExecutor for concurrent downloads
+    with ThreadPoolExecutor(max_workers=concurrent_fragments) as executor:
+        futures = [executor.submit(download_url, url, ydl_opts) for url in urls]
+        for future in as_completed(futures):
+            try:
+                future.result()  # Check if the download was successful
+            except Exception as e:
+                logging.error(f"Error in concurrent execution: {e}")
 
 
 if __name__ == "__main__":
