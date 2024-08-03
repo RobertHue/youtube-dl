@@ -1,4 +1,4 @@
-# youtube-dl
+# yt-dlp-wrapper
 
 This script is a wrapper for [yt-dlp](https://github.com/yt-dlp/yt-dlp), designed to download audio or video from provided URLs.
 
@@ -9,7 +9,7 @@ This script is a wrapper for [yt-dlp](https://github.com/yt-dlp/yt-dlp), designe
 
 ## Table of Contents
 
-- [youtube-dl](#youtube-dl)
+- [yt-dlp-wrapper](#yt-dlp-wrapper)
   - [Features](#features)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
