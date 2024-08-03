@@ -8,7 +8,7 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-ydl_audio_m4a = {
+ydl_audio_best = {
     "format": "m4a/bestaudio/best",
     "postprocessors": [{"key": "FFmpegExtractAudio", "preferredcodec": "m4a"}],
 }
