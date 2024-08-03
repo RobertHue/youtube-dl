@@ -41,9 +41,13 @@ def main(input_file, output_folder, strategy, concurrent_fragments):
     """
     try:
         with open(input_file, "r") as file:
-            urls = file.read().splitlines()
+            urls = [line.strip() for line in file if line.strip()]
     except FileNotFoundError:
         logging.error(f"Input file {input_file} not found.")
+        return
+
+    if not urls:
+        logging.error("No valid URLs found in the input file.")
         return
 
     # Delete the output folder if it exists
