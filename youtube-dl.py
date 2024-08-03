@@ -1,8 +1,12 @@
 import argparse
 import os
 import shutil
+import logging
 import yt_dlp
 
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 ydl_audio_m4a = {
     "format": "m4a/bestaudio/best",
