@@ -1,6 +1,7 @@
 import json
-import yt_dlp
 from pprint import pprint
+
+import yt_dlp
 
 URL = "https://www.youtube.com/watch?v=BaW_jenozKc"
 
