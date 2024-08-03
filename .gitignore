@@ -1,0 +1,6 @@
+poetry.lock
+*.mp4
+*.m4a
+*.mp3
+*.part*
+*.ytdl
