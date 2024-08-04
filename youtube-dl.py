@@ -51,9 +51,6 @@ def main(input_file, output_folder, strategy, concurrent_fragments):
         logging.error("No valid URLs found in the input file.")
         return
 
-    # Delete the output folder if it exists
-    if os.path.exists(output_folder):
-        shutil.rmtree(output_folder)
     # Create output folder if it doesn't exist
     os.makedirs(output_folder, exist_ok=True)
 
