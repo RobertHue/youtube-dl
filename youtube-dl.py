@@ -1,7 +1,6 @@
 import argparse
 import logging
 import os
-import shutil
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import yt_dlp
