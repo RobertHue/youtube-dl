@@ -2,7 +2,7 @@
 name = "youtube-dl"
 version = "0.1.0"
 description = "Wrapper for yt-dlp, designed to download audio or video from provided URLs. "
-authors = ["none"]
+authors = ["RobertHue <robert.huem@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 
