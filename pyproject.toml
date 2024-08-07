@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "youtube-dl"
 version = "0.1.0"
-description = ""
+description = "Wrapper for yt-dlp, designed to download audio or video from provided URLs. "
 authors = ["none"]
 license = "MIT"
 readme = "README.md"
@@ -9,7 +9,6 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 yt-dlp = "^2024.8.1"
-
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.13.2"
